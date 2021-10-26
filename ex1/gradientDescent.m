@@ -19,12 +19,25 @@ for iter = 1:num_iters
     %h = X * theta;
     %t = h - y;
     %theta  = theta -(alpha/m) * X' * t;
-   h = (X * theta);
-   mid_div = h - y;
-   theta = theta - ((alpha * (X'*mid_div))/m);
+    % h = (X * theta);
+    % mid_div = h - y;
+    % theta = theta - ((alpha * (X'*mid_div))/m);
     
 
-
+    % linear/scalar solution
+    % h = X * theta;
+    % for i=1:size(X)(1),
+    %   for j=1:size(X)(2),
+    %     Y = y(i, 1);
+    %     x = X(i, j);
+    %     H = h(i, 1);
+    %     theta(j,1) = theta(j,1) - ( (alpha/m) * (x * (H - Y) ) );
+    %   endfor;  
+    % endfor;
+    
+    % parametized solution
+    h = X * theta;
+    theta = theta - ((alpha/m) * (X'*(h-y))); 
 
 
     % ============================================================
