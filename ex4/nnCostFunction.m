@@ -48,8 +48,7 @@ end;
 a1 = [ones(m, 1), X];
 z2 = a1 * Theta1'; % 5000 x 401, 401 x 25 
 a2 = [ones(size(z2,1), 1), sigmoid(z2)]; % apply sigmoid to z2 and add 1's to it
-z3 = a2 * Theta2';
-a3 = sigmoid(z3);
+a3 = sigmoid(a2 * Theta2');
 h_x = a3;
 
 penalty = (sum(sum(Theta1(:, 2:end).^2, 2))+sum(sum(Theta2(:, 2:end).^2, 2))) * (lambda/(2*m));
